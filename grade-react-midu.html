@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de React</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        color: white;
+        font-size: 16px;
+        margin: 0;
+        background-color: #222222;
+      }
+
+      #header {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #bcbcbc94;
+        height: 50px;
+        padding: 10px;
+        backdrop-filter: blur(4px);
+        z-index: 1;
+      }
+      #picture img {
+        max-width: 100px;
+        height: auto;
+        margin-left: 10px;
+        border-radius: 10px;
+        transition: all 0.3s;
+      }
+      #picture img:hover {
+        transform: scale(1.1);
+        transition: all 0.3s;
+      }
+      li {
+        list-style: disc;
+        font-size: 0.9em;
+        margin-top: 0.9em;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      .menu-horizontal {
+        background-color: #222222;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-right: 40px;
+        margin-top: 0;
+        padding-right: 10px;
+        padding-left: 15px;
+        width: 200px;
+        height: 53px;
+        position: relative;
+      }
+      .menu-horizontal > li {
+        list-style: none;
+      }
+      .menu-vertical {
+        background-color: #434242;
+        border-radius: 10px;
+        display: none;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        position: absolute;
+        width: 200px;
+        top: 52px;
+        right: 3px;
+      }
+      .menu-vertical a:hover,
+      p > a:hover {
+        color: #5ed3f3;
+      }
+      .menu-horizontal:hover .menu-vertical {
+        display: block;
+      }
+      @media (max-width: 500px) {
+        .menu-horizontal {
+          width: 180px;
+        }
+        .menu-vertical {
+          width: 180px;
+        }
+      }
+      #main {
+        height: 110vh;
+        margin: auto;
+        max-width: 70ch;
+        padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        margin-top: 3em;
+        margin-bottom: 3em;
+      }
+      p > a {
+        background-color: #2d2d2d;
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      #form {
+        display: flex;
+        flex-direction: column;
+      }
+      #form > input {
+        border-radius: 5px;
+        border: none;
+        height: 3em;
+        margin: 20px 0 10px 0;
+        padding-left: 10px;
+      }
+      #form > #submit {
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        height: 2.5em;
+        margin: auto;
+        width: 100px;
+      }
+      #form > #submit:hover {
+        background-color: #5ed3f3;
+        transition: all 0.3s;
+      }
+      h2 {
+        padding-top: 4em;
+        margin-bottom: 1.5em;
+      }
+      .youtube-container {
+        position: relative;
+        padding-top: 56.26%;
+        overflow: hidden;
+      }
+      iframe {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      section {
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <picture id="picture">
+        <a href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/1/18/React_Native_Logo.png"
+            alt="logo"
+            id="header-img"
+          />
+        </a>
+      </picture>
+      <nav id="nav-bar">
+        <ul class="menu-horizontal">
+          <li>
+            <a href=""> Contenido del Articulo </a>
+            <ul class="menu-vertical">
+              <li>
+                <a class="nav-link" href="#video-one"
+                  >Aprendiendo React desde cero</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-two"
+                  >Crea un app con create-react-app</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-three"
+                  >Custom Hooks y React Context</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-four"
+                  >Lazy Load, Suspense y Paginación</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-five"
+                  >CSS Grid, Infinite Scroll y Testing</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-six"
+                  >React.memo, mejora el rendimiento de la app y Deploy con
+                  Vercel</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-seven"
+                  >SEO con React y Deploy Integrado con GitHub</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-eight"
+                  >useReducer y testing de React Hooks</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-nine"
+                  >Inicio de sesión y gestión de favoritos del usuario</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-ten"
+                  >Registro de usuario con Formik y React.createPortal</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#video-eleven"
+                  >CSS en JS y Styled Components con Emotion</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>¿Quieres Aprender React?</h1>
+      <p>
+        Te enseño una
+        <a href="https://midu.dev/curso-gratis-react-2020/">pagina</a> de una
+        gran persona donde puedes aprender React y ademas donde se realiza un
+        proyecto con lo aprendido
+      </p>
+      <form action="https://www.freecodecamp.com/email-submit" id="form">
+        <label for="email">Para más información como estas suscribete</label>
+        <input
+          name="email"
+          type="email"
+          id="email"
+          placeholder="Ingresa tu dirección de correo..."
+          required="/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/"
+        />
+        <input type="submit" id="submit" value="Enviar" />
+      </form>
+
+      <section>
+        <h2 id="video-one">Aprende React desde cero</h2>
+        <div class="youtube-container">
+          <iframe
+            id="video"
+            src="https://www.youtube.com/embed/T_j60n1zgu0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-two">Crea una app con create-react-app</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/QBLbXgeXMU8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-three">Custom Hooks y React Context</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/2qgs7buSnHQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-four">Lazy Load, Suspense y Paginación</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VcxXipZg1-0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-five">CSS Grid, Infinite Scroll y Testing</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/oCHdFiCgOSE"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-six">
+          React.memo, mejora el rendimiento de la app y Deploy con Vercel
+        </h2>
+        <div class="youtube-container">
+          <iframe
+            src="https://www.youtube.com/embed/Wo7_OVtu1ls"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-seven">SEO con React y Deploy Integrado con GitHub</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/b-pwpHaYOTI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-eight">UseReducer y testing de React Hooks</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/Wjy_nlYXTik"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-nine">
+          Inicio de sesión y gestión de favoritos de usuario
+        </h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VT5S9Y49SYs"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-ten">
+          Registro de usario con Formik y React.creatPortal
+        </h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/dtbI6gDnTFU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 id="video-eleven">Css en JS y Styled Components con Emotion</h2>
+        <div class="youtube-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/DjVGdUM1dHQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

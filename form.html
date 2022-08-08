@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="" />
+    <title>Formulario Estático</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #333333;
+        box-sizing: border-box;
+        color: white;
+        font-size: 16px;
+        background-color: #373737;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%231dbab1' fill-opacity='0.36' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+      }
+      main {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+        max-width: 75ch;
+        background-color: #333333;
+        border-radius: 15px;
+      }
+
+      #description {
+        text-align: center;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+      }
+      .forms-subgroups {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .form-subgroup {
+        display: flex;
+        flex-direction: column;
+      }
+      input,
+      select,
+      textarea {
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 2.5em;
+        padding: 0 10px 0 10px;
+        margin-top: 5px;
+      }
+      textarea {
+        height: 13em;
+        padding: 10px;
+        resize: vertical;
+      }
+
+      #submit {
+        background-color: #2d6663;
+        border-radius: 15px;
+        border: #377c7895 solid 3px;
+        height: 2.5em;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      [type="radio"],
+      [type="checkbox"] {
+        height: auto;
+        accent-color: #4eb1ac;
+      }
+      span {
+        font-size: 0.8em;
+      }
+    </style>
+    <title>Tu Lenguaje Preferido</title>
+  </head>
+  <body>
+    <main>
+      <heade>
+        <h1 id="title">Lenguaje que Deseas Estudiar</h1>
+        <p id="description">Elige los lenguajes que más te gusten</p>
+      </heade>
+      <form action="" id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            required=""
+            placeholder="Ingresa tu nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Correo electronico</label>
+          <input
+            type="email"
+            id="email"
+            required="/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/"
+            placeholder="Ingresa tu correo electronico"
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number"
+            >Edad <span>(opcional)</span></label
+          >
+          <input
+            type="number"
+            id="number"
+            min="18"
+            max="100"
+            placeholder="Ingresa tu edad"
+          />
+        </div>
+        <div class="form-group">
+          <p>Selecciona el lenguaje que más te guste</p>
+          <select
+            id="dropdown"
+            class="form-control"
+            name="lenguaje"
+            required=""
+          >
+            <option value="" selected="" disabled>
+              Seleccione algun lenguaje
+            </option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Nivel de satisfacción</p>
+          <label>
+            <input type="radio" value="good" name="a" checked />
+            Agradable
+          </label>
+          <label>
+            <input type="radio" value="interesting" name="a" />
+            Interesante
+          </label>
+          <label>
+            <input type="radio" value="unpleasant" name="a" />
+            Desagradable
+          </label>
+        </div>
+        <div class="form-group">
+          <p>
+            ¿Cuales framework ó libreria te gustan?
+            <span>(correspondiente al lenguaje elegido)</span>
+          </p>
+          <div class="forms-subgroups">
+            <div id="javascript" class="form-subgroup">
+              <p>JavaScript</p>
+              <label>
+                <input type="checkbox" value="react" name="prefer" />
+                React
+              </label>
+              <label>
+                <input type="checkbox" value="vue" name="prefer" />
+                Vue
+              </label>
+              <label>
+                <input type="checkbox" value="angular" name="prefer" />
+                Angular
+              </label>
+            </div>
+
+            <div id="python" class="form-subgroup">
+              <p>Python</p>
+              <label>
+                <input type="checkbox" value="django" name="prefer" />
+                Django
+              </label>
+              <label>
+                <input type="checkbox" value="pyramid" name="prefer" />
+                Pyramid
+              </label>
+              <label>
+                <input type="checkbox" value="flask" name="prefer" />
+                Flask
+              </label>
+              <label>
+                <input type="checkbox" value="web2py" name="prefer" />
+                Web2py
+              </label>
+            </div>
+
+            <div id="java" class="form-subgroup">
+              <p>Java</p>
+              <label>
+                <input type="checkbox" value="spring" name="prefer" />
+                Spring
+              </label>
+              <label>
+                <input type="checkbox" value="hibernate" name="prefer" />
+                Hibernate
+              </label>
+              <label>
+                <input type="checkbox" value="javaserver" name="prefer" />
+                JavaServer Faces (JSF)
+              </label>
+              <label>
+                <input type="checkbox" value="grails" name="prefer" />
+                Grails
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p>
+            ¿Qué aspecto te gustaria que se mejorara respecto al lenguaje
+            elegido?
+          </p>
+          <textarea
+            name="comment"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Ingresa tu comentario aquí..."
+          ></textarea>
+        </div>
+        <div class="form-group"><button id="submit">Submit</button></div>
+      </form>
+    </main>
+  </body>
+</html>

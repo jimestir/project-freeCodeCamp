@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentación de JS</title>
+    <style>
+      body {
+        background-color: #0b0b0b;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2322a18c' fill-opacity='0.12'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      #main {
+        background-color: #333333;
+        border-radius: 15px;
+        color: white;
+        margin: 20px auto;
+        max-width: 75ch;
+      }
+      #title {
+        margin-bottom: 35px;
+        padding-top: 20px;
+        text-align: center;
+      }
+      #subtitle {
+        text-align: center;
+      }
+      #img-div {
+        align-items: center;
+        background-color: #222222;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+      }
+      #image {
+        border-radius: 15px;
+        display: block;
+        height: auto;
+        margin: 10px 0 20px 0;
+        max-width: 100%;
+      }
+      #img-caption {
+        font-size: 0.8em;
+        padding: 5px 5px 10px 5px;
+        text-align: center;
+      }
+      h3 {
+        margin: 30px auto;
+        width: 90%;
+      }
+      #index {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: 20px auto;
+        padding: 0;
+        width: 90%;
+      }
+      #index > li {
+        margin-right: 15px;
+      }
+
+      #concept {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: auto;
+        padding: 0;
+        scroll-behavior: smooth;
+        width: 90%;
+      }
+      #concept > li {
+        width: 100%;
+      }
+      #subconcept {
+        margin: auto;
+        padding: 0;
+        width: 80%;
+      }
+      h4 {
+        border-bottom: solid 2px #36b8b0;
+        display: inline;
+        margin: 30px 0 20px 0px;
+      }
+      .code {
+        background-color: #222222;
+        border-radius: 10px;
+        margin: 30px auto;
+        padding: 10px;
+        width: 85%;
+      }
+
+      footer {
+        padding: 20px;
+        text-align: center;
+      }
+      a {
+        color: #36b8b0;
+        text-decoration: none;
+      }
+      a:hover {
+        border-bottom: solid 1px #36b8b0;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main">
+      <h1 id="title">Tipos de Datos Primitivos en JavaScript</h1>
+      <p id="subtitle">
+        En JavaScript hay dos tipos de datos primitivos y objetos
+      </p>
+      <figure id="img-div">
+        <img
+          id="image"
+          alt="portada"
+          src="data:image/png;base64,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"
+        />
+        <figcaption id="img-caption">
+          Hay varios tipos de datos primitivos cuya finalidad es distinta entre
+          ellos, cualquier otro que no se refleje aquí es un objeto. Los tipos
+          de datos primitivos tienen dos caracteristicas: no poseen métodos ni
+          propiedades y son inmutables.
+        </figcaption>
+      </figure>
+      <section id="tribute-info">
+        <h3 id="headline">Tipos:</h3>
+        <ul id="index">
+          <li><a href="#strings">String</a></li>
+          <li><a href="#number">Number</a></li>
+          <li><a href="#boolean">Boolean</a></li>
+          <li><a href="#null">Null</a></li>
+          <li><a href="#undefined">Undefined</a></li>
+          <li><a href="#symbol">Symbol</a></li>
+        </ul>
+        <ul id="concept">
+          <li>
+            <h4 id="strings">Strings (cadena de texto)</h4>
+            <p>
+              Sirven para representar texto. Para representarlo JS usa UTF-16 lo
+              que nos permite representar caracteres y un montón de alfabetos
+              inclusive emoji.
+            </p>
+          </li>
+          <li>
+            <h4 id="number">Number</h4>
+            <p>
+              Para alguno lenguaje hay limitantes en cuanto a la cantidad de
+              numero están Byete, Char, in, lang. pero en JS solo existe un tipo
+              de dato NUMBER que sirve tanto para números positivo y negativo,
+              hasta para valores decimales. JS para los numero decimales es un
+              problema ya que coloca mucho decimales. Para representar el numero
+              se usa un formato llamado IEEE 754 formato para representar a los
+              números en JS. Cada número ocupa 64bits en la memoria (8Bytes).
+              Para solucionarlo se usa el método .toFixed()
+            </p>
+            <div class="code">
+              <code>
+                let number = (0.1 + 0.2).toFixed(2)// pero esto devuelve un
+                string<br />
+                let number = + (0.1 + 0.2).toFixed(2)// anteponiendo un "+" de
+                la operacion retornara un valor typeof number
+              </code>
+            </div>
+          </li>
+          <li>
+            <ul id="subconcept">
+              <h4 id="nan">NaN (not a Number)</h4>
+              <p>
+                Es de tipo number y es el resultado de cómputos inválidos. Por
+                ejemplo dividir un string con un numero, además NaN se va a
+                propagar con cualquier otro calculo que queramos hacer con el,
+                NaN ni si quiera es igual así mismo. Por suerte hay una función
+                que permite verificar si el parámetro que le pasamos es NAN.
+              </p>
+              <div class="code">
+                <code>
+                  isNaN(30); //false <br />
+                  isNaN(NaN); //true
+                </code>
+              </div>
+            </ul>
+          </li>
+          <li>
+            <h4 id="boolean">Boolean</h4>
+            <p>
+              Solo puede tiene dos valores: <strong>true</strong> o
+              <strong>false</strong>. Valores falsos valores que van a ser
+              evaluados como false (además de false): "", 0, null, undefined y
+              NaN. Cualquier otro valor va a ser <strong>verdadero</strong>.
+            </p>
+          </li>
+          <li>
+            <h4 id="null">Null</h4>
+            <p>
+              Es el tipo de dato para representar la ausencia de valor. Sirve
+              para decir que una variable no contiene nada, está vacía o que
+              todavía no conocemos su valor. Back: null es una variable
+              primitiva pero al evaluarla con
+              <code>typeof</code> esta dará object pero es debido a una back, es
+              decir un error cuando fue creada JS.
+            </p>
+          </li>
+          <li>
+            <h4 id="undefined">Undefined</h4>
+            <p>
+              Significa tipo de dato desconocido. Sin una variable da undefined
+              significa que aún no se le dio ningún valor, no se recibió ese
+              parámetro, una función se terminó de ejecutar hasta el final sin
+              devolver ningún valor.
+            </p>
+          </li>
+          <li>
+            <h4 id="symbol">Symbol</h4>
+            <p>Se usa para crear valores únicos, irrepetibles.</p>
+            <div class="code">
+              <code>
+                let symbol1 = Symbol('descripción'); <br />
+                let symbol2 = Symbol('descripción');<br />
+                symbol1 === symbol2;//false, apesar de tener la misma
+                descripcion estos son unicos.
+              </code>
+            </div>
+          </li>
+        </ul>
+        <footer>
+          Para más informacion recomiendo ver el
+          <a
+            id="tribute-link"
+            href="https://www.youtube.com/watch?v=cC65D2q5f8I&list=PLfWyZ8S-XzecAttp3QU-gBBXvMqEZTQXB&index=2"
+            target="_blank"
+            >video</a
+          >
+          donde fue redactado este articulo.
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

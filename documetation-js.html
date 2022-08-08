@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentación de JS</title>
+    <style>
+      body {
+        background-color: #282c34;
+        color: white;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .context {
+        display: flex;
+        flex-direction: row;
+      }
+      #navbar {
+        align-items: center;
+        background: linear-gradient(
+          to top,
+          rgb(51, 51, 51) 75%,
+          rgba(5, 136, 153, 0.5)
+        );
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        height: 500px;
+        margin: 0px 10px 0 0px;
+        padding: 20px;
+        padding-bottom: 20px;
+        position: sticky;
+        top: 40px;
+        left: 20px;
+        width: 150px;
+      }
+      @media (max-width: 1100px) {
+        #navbar {
+          padding-bottom: 60px;
+        }
+      }
+      #navbar a {
+        margin-top: 35px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+      }
+      #navbar > header {
+        margin-bottom: 40px;
+      }
+      #main-doc {
+        flex-grow: 3;
+        width: 75ch;
+        padding: 20px;
+        margin: 0 50px 0 20px;
+      }
+      #main-doc header {
+        margin: 40px 0 20px 0;
+      }
+      #main-doc header > h1 {
+        border-bottom: rgba(5, 136, 153, 0.5) solid 3px;
+        display: inline;
+        padding-bottom: 5px;
+      }
+      .code-container {
+        background-color: #444444;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="context">
+      <nav id="navbar">
+        <header><h1>JS Documentación</h1></header>
+        <a class="nav-link" href="#introducción">Introducción</a>
+        <a class="nav-link" href="#tipos_de_datos_primitivos"
+          >Tipos de Datos Primitivos</a
+        >
+        <a class="nav-link" href="#object_wrapper">Object Wrapper</a>
+        <a class="nav-link" href="#valores_vs_referencia"
+          >Valores Vs Referencia</a
+        >
+        <a class="nav-link" href="#asincronismo">Asincronismo</a>
+        <a class="nav-link" href="#call_back">Call Back</a>
+      </nav>
+      <main id="main-doc">
+        <section id="introducción" class="main-section">
+          <header><h1>Introducción</h1></header>
+          <p>
+            JavaScript (JS) es un lenguaje de programación ligero, interpretado,
+            o compilado justo-a-tiempo (just-in-time) con funciones de primera
+            clase. Si bien es más conocido como un lenguaje de scripting
+            (secuencias de comandos) para páginas web, y es usado en muchos
+            entornos fuera del navegador, tal como Node.js, Apache CouchDB y
+            Adobe Acrobat JavaScript es un lenguaje de programación basada en
+            prototipos, multiparadigma, de un solo hilo, dinámico, con soporte
+            para programación orientada a objetos, imperativa y declarativa (por
+            ejemplo programación funcional). Lee más en acerca de JavaScript.
+          </p>
+
+          <p>
+            Esta sección está dedicada al lenguaje JavaScript en sí, y no a las
+            partes que son específicas de las páginas web u otros entornos host.
+            Para información acerca de APIs específicas para páginas Web,
+            consulta APIs Web y DOM.
+          </p>
+          <p>
+            El estándar para JavaScript es ECMAScript (ECMA-262) y la
+            especificación de la API para la Internacionalización de ECMAScript
+            (ECMA-402). La documentación en MDN está basada enteramente en las
+            últimas versiones preliminares de ECMA-262 y ECMA-402. Y en algunos
+            casos donde algunas propuestas para nuevas funciones para ECMAScript
+            ya hayan sido implementadas en los navegadores, la documentación y
+            algunos artículos de MDN pueden hacer uso de algunas de estas
+            funciones.
+          </p>
+          <p>
+            No confundas JavaScript con el lenguaje de programación Java. Ambos
+            "Java" y "JavaScript" son marcas o marcas registradas de Oracle en
+            los Estados Unidos y otros países, Sin embargo, los dos lenguajes de
+            programación tienen sintaxis, semántica y usos muy diferentes.
+          </p>
+          <p>
+            Para más información visita la documentación oficial en
+            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript"
+              >MDN</a
+            >.
+          </p>
+          <p></p>
+        </section>
+
+        <section id="tipos_de_datos_primitivos" class="main-section">
+          <header>
+            <h1>Tipos de Datos Primitivos</h1>
+          </header>
+          <h3>Tipado Débil</h3>
+          <p>Podemos realizar operaciones entre valores de distintos tipos.</p>
+          <h3>Tipado Dinámico</h3>
+          <p>
+            Las variables no tienen un tipo de dato particular asociado. Podemos
+            asignarle y re-asignarle cualquier valor a cualquier variable.
+          </p>
+          <p>Los tipos de datos primitivos tienen dos características:</p>
+          <ul>
+            <li>No poseen métodos ni propiedades.</li>
+            <li>Son inmutables.</li>
+          </ul>
+          <p>
+            Así que los tipos de datos primitivos son valores básicos,
+            inmutables y que no poseen métodos ni propiedades.
+          </p>
+          <h2>Tipos:</h2>
+          <ul>
+            <li>Stings</li>
+            <li>Number</li>
+            <li>Boolean</li>
+            <li>Null</li>
+            <li>Undefined</li>
+            <li>Symbol</li>
+          </ul>
+          <p>Cualquier otro que no sea alguno de estos es un objeto.</p>
+          <h3>Strings (cadena de texto)</h3>
+          <p>
+            Sirven para representar texto. Para representarlo JS usa
+            <code>UTF-16</code> lo que nos permite representar caracteres y un
+            montón de alfabetos inclusive emoji.
+          </p>
+          <h3>Number</h3>
+          <p>
+            Para alguno lenguaje hay limitantes en cuanto a la cantidad de
+            numero están <code>Byete, Char, in, lang</code>. pero en JS solo
+            existe un tipo de dato NUMBER que sirve tanto para números positivo
+            y negativo, hasta para valores decimales. JS para los numero
+            decimales es un problema ya que coloca mucho decimales. Para
+            representar el numero se usa un formato llamado IEEE 754 formato
+            para representar a los números en JS. Cada número ocupa 64bits en la
+            memoria (<code>8Bytes</code>). Para solucionarlo se usa el método
+            <code>.toFixed()</code>
+          </p>
+          <div class="code-container">
+            <code
+              >let number = (0.1 + 0.2).toFixed(2)// pero esto devuelve un
+              string
+              <br />
+              let number = + (0.1 + 0.2).toFixed(2)// anteponiendo un "+" de la
+              operacion retornara un valor typeof number</code
+            >
+          </div>
+          <h3>NaN (not a Number)</h3>
+          <p>
+            Es de tipo number y es el resultado de cómputos inválidos. Por
+            ejemplo dividir un string con un numero, además NaN se va a propagar
+            con cualquier otro calculo que queramos hacer con el, NaN ni si
+            quiera es igual así mismo. Por suerte hay una función que permite
+            verificar si el parámetro que le pasamos es NAN.
+          </p>
+          <div class="code-container">
+            <code
+              >isNaN(30); //false <br />
+              isNaN(NaN); //true</code
+            >
+          </div>
+          <h3>Boolean</h3>
+          <p>
+            Solo puede tiene dos valores: <code>true</code> o
+            <code>false</code>.
+            <br />
+
+            Valores falsos valores que van a ser evaluados como false (además de
+            false): <code>“”</code>, <code>0</code>, <code>null</code>,
+            <code>undefined</code> y <code>NaN</code>. Cualquier otro valor va a
+            ser verdadero.
+          </p>
+          <h3>Null</h3>
+          <p>
+            Es el tipo de dato para representar la ausencia de valor. Sirve para
+            decir que una variable no contiene nada, está vacía o que todavía no
+            conocemos su valor. Back: null es una variable primitiva pero al
+            evaluarla con <code>typeof</code> esta dará object pero es debido a
+            una back, es decir un error cuando fue creada JS.
+          </p>
+          <h3>Undefined</h3>
+          <p>
+            Significa tipo de dato desconocido. Sin una variable da undefined
+            significa que aún no se le dio ningún valor, no se recibió ese
+            parámetro, una función se terminó de ejecutar hasta el final sin
+            devolver ningún valor.
+          </p>
+          <h3>Symbol</h3>
+          <p>Se usa para crear valores únicos, irrepetibles.</p>
+          <div class="code-container">
+            <code
+              >let symbol1 = Symbol('descripción'); <br />
+              let symbol2 = Symbol('descripción'); <br />
+              symbol1 === symbol2;//false, apesar de tener la br misma
+              descripcion estos son unicos.</code
+            >
+          </div>
+          <h4>Registro global de symbols</h4>
+          <p>
+            Podemos acceder a mismo símbolo desde distintos lugares de nuestro
+            programa a partir de su descripción. Además es compartido nuestro
+            symbols entre nuestra pagina y los servciesWorkers o iframes que
+            esta pueda llegar a incluir.
+          </p>
+        </section>
+
+        <section id="object_wrapper" class="main-section">
+          <header><h1>Object Wrapper</h1></header>
+          <p>
+            Los valores primitivos tienen su equivalencia en los objetos:
+            String, Number y Boolean. Cada ves que queramos acceder a un
+            atributo o llamar un método de un valor primitivo el motor de JS va
+            a crea uno de estos objetos temporalmente solo para acceder a ese
+            atributo o llamar a ese método. Este objeto temporal se le llama
+            Object Wrapper es un objeto que envuelve un valor primitivo cuando
+            queremos acceder a una propiedad o llamar un método del mismo, y es
+            temporal porque el motor lo usa por solo una fracción de segundo y
+            luego lo deshecha, lo borra de la memoria.
+          </p>
+          <p>
+            Es temporal porque el motor lo utiliza sólo por una fracción de
+            segundo. Después lo desecha, lo borra de la memoria.
+          </p>
+        </section>
+        <section id="valores_vs_referencia" class="main-section">
+          <header>
+            <h1>Valores vs Referencia</h1>
+          </header>
+          <h2>Valores Primitivos</h2>
+          <p>
+            Si una variable contiene un valor primitivo (el que sea), cuando se
+            la asignemos a otra variable, se hara una copia del valor hacia la
+            otra variable, sin haber ninguna relación entre ellas. y si se le
+            asigna un valor nuevo a unas de las variables no habrá cambio en la
+            otra variable.
+          </p>
+          <p>Las variables de JS son totalmente independientes.</p>
+          <div class="code-container">
+            <code
+              >var frasco1 = "banana"; <br />
+              var frasco2 = frasco1; //es igual a decir frasco2 =
+              "banana";</code
+            >
+          </div>
+          <h2>Objetos</h2>
+          <p>
+            La diferencia de los objetos respecto a los valor primitivo, es que
+            se le puede asignar multiples valores.
+          </p>
+          <p>
+            Cuando decimos “objeto” nos estamos refiriendo a un objeto literal,
+            un array o una función. Básicamente cualquiera que no sea una valor
+            primitivo.
+          </p>
+          <h2>HEAP (memoria dinámica)</h2>
+          <p>
+            Es el área de la memoria destinada para almacenar objetos. Este
+            espacio es mucho más grande a comparación donde se guardan las
+            variables con valor primitivo, pero también es mucho mas lento de
+            acceder.
+          </p>
+          <p>
+            Por qué es mas lento? Cada vez que asignemos un objeto a una
+            variable JS va a poner ese objeto en cualquier espacio de memoria
+            que encuentre en el HEAP, y a continuación lo que va a hacer es
+            recordar en que dirección de memoria lo puso, y esa dirección es lo
+            que va a guardar en la variable.
+          </p>
+          <p>
+            Qué pasa cuando a una variable se le asigna a otra que apunta un
+            objeto? Como se realiza esa asignación? Cuando una variable tiene un
+            objeto y se le asigna a otra, lo que se va a copiar es la
+            referencia.
+          </p>
+
+          <p>
+            Como antes dicho las variables son independientes si después se
+            decide asignarle otro objeto a una de las dos solo se cambiara la
+            referencia que tiene esa variable descartando la referencia
+            anterior, y cuando ya no quede referencias hacia un objeto el motor
+            de JS sabra que se puede liberar ese espacio en memoria dejándolo
+            disponible para otros objetos.
+          </p>
+          <h3>Si tenemos multiples variables que apunta al mismo objeto</h3>
+          <div class="code-container">
+            <code
+              >var fruta = { <br />
+              nombre: 'banana', <br />
+              cantidad: 4 <br />
+              }; var fruta2 = fruta; // y se modifica una de sus propiedades
+              usando alguna de las dos br fruta.cantidad = fruta.cantidad - 1;
+              <br />
+              fruta2.cantidad; // vale 3!</code
+            >
+          </div>
+          <h3>Referencia</h3>
+          <p>La posición de memoria que se usa para acceder a un objeto</p>
+          <h2>Funciones y variables</h2>
+          <p>
+            Para las funciones se cumple el mismo principio tanto para valores
+            primitivo como para objetos, es decir:
+          </p>
+          <ul>
+            <li>
+              Para valores primitivos:
+              <div class="code-container">
+                <code
+                  >function comer(cantidad){ <br />
+                  cantidad = cantidad - 1; <br />
+                  } <br />
+                  var cantidad = 4; <br />
+                  comer(cantidad);</code
+                >
+              </div>
+            </li>
+            <li>
+              Para objetos:
+              <div class="code-container">
+                <code>
+                  function comer(fruta) { <br />
+                  fruta.cantidad = furta.cantidad - 1 <br />
+                  } <br />
+                  var fruta = { <br />
+                  nombre = "banana", <br />
+                  cantidad = 4 <br />
+                  } <br />
+                  comer(fruta); <br />
+                  fruta.cantidad// vale 3
+                </code>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="asincronismo" class="main-section">
+          <header>
+            <h1>Asincronismo</h1>
+          </header>
+          <h2>Cómo funciona el asincronismo en JavaScript</h2>
+          <p>
+            JavaScript solo puede hacer una tarea a la vez, pero pude delegar de
+            ciertas funciones a otros procesos, dicho evento de concurrencia se
+            llama EVENT LOOP.
+          </p>
+          <h2>EVENT LOOP</h2>
+          <p>
+            JS tiene algo llamado pila de ejecución o call stack, donde va
+            poniendo las llamadas a funciones según el orden de ejecución de
+            nuestro programa, si una función llama a otra entonces esta se
+            agrega a la pila, cuando se termina de ejecutar una función la saca
+            de la pila y la bota. Si se desea ejecutar una petición esta se
+            podrá lograr mediante un call back, la cuestión es que hasta no
+            terminarse de ejecutar el programa principal dicha respuesta de la
+            petición no se lograra cumplir, por ende entrera a la cola de
+            tareas, las tareas se encolan según el orden en el que lleguen, ¿qué
+            tareas van a parar a esta cola? las peticiones a servidores, las
+            interacciones visuales, la navegación claim site, los eventos que se
+            realizan cada cierto tiempo. Una vez que el programa se quede sin
+            funciones en la pila de ejecución, allí es donde ira a buscar las
+            funciones en la cola de taras, por eso hay que tener cuidado de no
+            generar un cuello de botella en la pila de ejecución, si JS se queda
+            ejecutando tareas muy pesadas, las funciones de la cola de tareas
+            van a tardar mucho tiempo en ejecutarse. Por lo tanto @No voy a
+            bloquear el Event Loop.
+          </p>
+        </section>
+        <section id="call_back" class="main-section">
+          <header><h1>Call Back</h1></header>
+          <p>
+            Básicamente es como un mapa donde hay un inicio y un final, por ende
+            hay una trayectoria con varias paradas, donde el motor de JS le
+            sirve para saber en que función están parados durante la ejecución
+            del programa, y porque funciones fueron pasando previamente hasta
+            llegar ahí, y de esta manera cuando el motor termine de ejecutar la
+            función actual, puede avanzar para ejecutar la función previa. Desde
+            el lugar exacto que se había realizo la llamada de la función
+            actual, si esta función llama a otra, el motor sabe donde volver
+            cuando se termine de ejecutar esta otra (se refiere es si ha un
+            desvió del camino). Pero en realidad es solo un ejemplo puesto lo
+            que realmente se usa es una pila, donde para agregar un elemento se
+            coloca uno enzima de otro quedando debajo de la pila los primeros
+            elementos agregados, y la unica forma de obtener algunos de los
+            primeros elementos es quitando los elementos que estén sobre dicho
+            elemento. A las pilas También se le conoce como LIFO (Last In First
+            Out) el ultimo en entrar es el primero en salir, lo que significa es
+            cuando queremos sacar un elemento de la pila debemos sacar el que
+            esta arriba que es el ultimo elemento que pusimos.
+          </p>
+          <h2>¿Como funciona?</h2>
+          <p>
+            Antes del llamado de una función el motor de JS creara un registro
+            con información asociado a dicha función y lo va agregara a la pila,
+            este registro va contener la información necesaria para que el motor
+            pueda ejecutar esta función, y ante una nueva llamada a una función
+            el motor crea un nuevo registro (frame) para poder ejecutar esta
+            función y lo agrega a la pila, de esta manera el registro que queda
+            encima de la pila coincide con la que le motor esta ejecutando.
+          </p>
+          <div class="code-container">
+            <code>
+              // Ultima función en ejecutarse <br />
+              function multiplicar(num1,num2){ <br />
+              return num1*num2; <br />
+              } <br />
+              function doble(num){ <br />
+              return multiplicar(num,2); <br />
+              } <br />
+              let result = doble(8); <br />
+              console.log("El doble de 8 es: " + result);
+            </code>
+          </div>
+          <p>
+            El motor puede ejecutar una sola cosa a la vez, porque cuenta con
+            una sola pila de ejecución
+          </p>
+          <h3>(Anonymous)</h3>
+          <p>
+            Cuando se ejecuta un programa en JS la primera función que se agrega
+            a la pila es una función anónima que engloba a todo el programa, es
+            como si fuera el hilo principal del programa y cuando esta función
+            salga de la pila significa que termino la ejecución del programa
+            principal.
+          </p>
+          <h3>StackTrace (seguimiento de pila)</h3>
+          <p>
+            La secuencia de llamadas que se fueron dando mientras la ejecución
+            de un programa, hasta que sucedió una excepción o un error
+            inesperado.
+          </p>
+          <h3>Contexto de ejecución (scope)</h3>
+          <p>
+            Variables y funciones que se pueden acceder cuando se está
+            ejecutando una función
+          </p>
+          <h3>THIS</h3>
+          <p>
+            El objeto “dueño” de la función. El valor de This determina el
+            contexto de la función
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
